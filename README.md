@@ -56,3 +56,7 @@ This can also be used to control which fork is used, though only upstream `qmk_f
 1. (First time only) `git submodule add https://github.com/qmk/qmk_firmware.git`
 1. (To update) `git submodule update --init --recursive`
 1. Commit your changes to your userspace repository
+
+for flashing to rp2040
+use this command
+qmk compile -kb crkbd/rev1 -km corneOneShotLayout -e CONVERT_TO=promicro_rp2040
