@@ -1,15 +1,12 @@
-![SofleKeyboard default keymap](https://i.imgur.com/MZxVvm9.png)
-![SofleKeyboard adjust layer](https://i.imgur.com/f5sKy0I.png)
+keymap -> [./corneKeyboardLayerV1.excalidraw]
 
-# Default keymap for Sofle Keyboard
+issues I have with this keymap
+Mainly the issues is that it feels like left hand wrist more effort is being needed
+- my right thumb is what I got habituated for using space, trying to get left thumb to use space is making my left wrist to hurt
+- Having home row mods activated by opposite thumb is not intutive, one more pain point
+- for some reason one shot mods donot activate, need to add oled display on the left side
 
-Layout in [Keyboard Layout Editor](http://www.keyboard-layout-editor.com/#/gists/76efb423a46cbbea75465cb468eef7ff) and [adjust layer](http://www.keyboard-layout-editor.com/#/gists/4bcf66f922cfd54da20ba04905d56bd4)
-
-Features:
-
-- Symmetric modifiers (CMD/Super, Alt/Opt, Ctrl, Shift)
-- Various modes, can be switched (using Adjust layer and the selected one is stored in EEPROM.
-- Modes for Qwerty and Colemak support
-- Modes for Mac vs Linux/Win support -> different order of modifiers and different action shortcuts on the "UPPER" layer (the red one in the image). Designed to simplify transtions when switching between operating systems often.
-- The OLED on master half shows selected mode and caps lock state and is rotated.
-- Left encoder controls volume up/down/mute. Right encoder PGUP/PGDOWN.
+Plans for the next keymap
+- interchange space and enter (if possible create a key which can interchange the function between space and enter)
+- activate one shot mods with the thumb on the same side
+- add oled display to show the status of the oneshot mods
