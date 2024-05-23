@@ -11,9 +11,17 @@ enum sofle_layers {
     _SYMBOL
 };
 
-const uint16_t PROGMEM esc_combo[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM mcomma_combo[] = {KC_M, KC_COMM, COMBO_END};
+
 combo_t key_combos[] = {
-    COMBO(esc_combo, KC_ESC)
+    COMBO(jk_combo, KC_ESC),
+    COMBO(ui_combo, KC_TAB),
+    COMBO(mcomma_combo, KC_ENT),
 };
 
 //KC_TRNS == _______ transparent key
@@ -25,16 +33,16 @@ combo_t key_combos[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                         XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-  KC_ESC,   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                            KC_Y,   KC_U,   KC_I,   KC_O,   KC_P, XXXXXXX,
+  XXXXXXX,   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                            KC_Y,   KC_U,   KC_I,   KC_O,   KC_P, KC_GRV,
   OSM(MOD_LCTL),   KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                            KC_H,   KC_J,   KC_K,   KC_L,KC_SCLN,KC_QUOT,
   XXXXXXX,   KC_Z,   KC_X,   KC_C,   KC_V,   KC_B, XXXXXXX,        XXXXXXX,   KC_N,   KC_M,KC_COMM, KC_DOT,KC_SLSH, KC_BSPC,
                  XXXXXXX,XXXXXXX,KC_LGUI, TL_LOWR,  KC_ENT,         KC_SPC,TL_UPPR,KC_LSFT,XXXXXXX,XXXXXXX
 ),
 [_NUM] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                     XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+  _______, OSM(MOD_LSFT), OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_LGUI), _______,                    KC_PPLS ,  KC_PIPE, KC_EQL,  _______, _______,  _______,
   _______,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  _______,
-  _______, OSM(MOD_LSFT), OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_LGUI), _______,                    KC_PPLS ,  KC_ENT, KC_TAB, KC_LBRC , KC_RBRC,  _______,
-  _______,_______,_______,_______,_______,_______, _______,       _______, KC_MINS, KC_UNDS, KC_PIPE, KC_EQL, KC_BSLS, _______,
+  _______,_______,_______,KC_LBRC,KC_RBRC, _______, _______,       _______, KC_MINS, KC_UNDS, _______, _______, KC_BSLS, _______,
                        _______, _______, _______, _______, _______,       _______, _______, KC_LALT, _______, _______
 ),
     // The intention of KC_RGUI is to act as mod for moving between workspaces
@@ -47,9 +55,9 @@ XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                
 ),
 [_UTIL] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                                      XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-      _______, EE_CLR, _______, _______, _______, _______,                                             KC_LT, KC_VOLD, KC_VOLU, KC_MUTE, KC_MNXT, _______,
-      _______, OSM(MOD_LSFT), OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_LGUI), _______,                     KC_LEFT,  KC_DOWN, KC_UP, KC_RIGHT, KC_MPLY,  _______,
-      _______, _______, _______, _______, _______, _______,  _______,                           _______,KC_GT, KC_BRID, KC_BRIU, KC_MPRV, KC_MPRV, _______,
+      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                             KC_PGUP, KC_VOLD, KC_UP , KC_BRID, _______, _______,
+      _______, OSM(MOD_LSFT), OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_LGUI), _______,                     KC_MUTE, KC_LEFT,  KC_DOWN, KC_RIGHT, KC_TAB,  _______,
+      _______, _______, _______, _______, _______, _______,  _______,                           _______,KC_PGDN, KC_VOLU, _______,  KC_BRIU, _______,_______,
                          _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
 )
 };

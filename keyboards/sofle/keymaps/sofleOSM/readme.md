@@ -7,7 +7,6 @@ The layout is intentionally as asymmentric and favoured towards right side as po
 
 space is used by the dominant thumb key, instead of on the left thumb key 
 
-removed most of the one shot mods from the previous versions -> when possible would like to try callums one shot mods, for now I would like to get hang of this layout
 
 shift key is moved to the dominant thumb key so that it can be used for both sides
 
@@ -21,16 +20,33 @@ Working on this keymap feels like I made a mistake jumping into 40% keyboard rab
 
 Nevertheless, it was fun thinking throught this layout, though it felt like white board mastrubation after I came up with the layout, like primeagen describes when talking about architectural designs, There are many other things I could be improving upon rather than the keymap on a freaking keyboard, like the Ben horowitz author of "The hard thing about hard things" says you should work on developing lead bullets to beat the competetion, rather than thinking about silver bullets
 
-Also me ![white board mastrubation](https://tenor.com/Hgjy.gif)
+<picture>
+    <source srcset="https://tenor.com/Hgjy.gif">
+    <img alt="white mastrubation">
+</picture>
 
-Next steps
-- The overarching goal would be to try to minimie the usage of the extreme pinkie colums, decreasing the keys through combos or tab hold
-- I would like to see if it is possible for me to move the position of enter, to the position of resting location of ;, so that I can use the enter thumb key for the purpose of symbol layer, though may be I should try tap mod first before comitting to this.
-    - the issue I could think of using this right now is that, in vim : is used frequently to enter commands so easy access would be helpful, though this could be done through layers, current symbols configuration doesnt seems to working well with it
-- Setup window manager keys so that in multi media layer the modifier keys are redundant, for now the modifier are placed for the purpose of moving the windows with modfiers, this is not directly related to this keymap
-- all the symbols present in the num layer are for the purpose of workspace management, so that they can be used together with modfiers, thinking this through would be a good idea, on how to do workspace management keys
-- I would like if I could include an emoticon layer, I think with the current capabilites of mine it is certainly pushing it
-- similar to tab it would be good if I can keep the enter key on layer which is easily accessible via a thumb, as mentioned in the point 2
+Observations
+- Holding shift in base layer and going to num layer makes the held shift key to behave as shift key, this is a neat feature which could be used to combine number and symbol layer.
+    - Thing would be getting hang of moving thumbs accordingly
+    - this goes other way too, holding alt key in num layer and going back to base layer, the held key will behave as alt key
+    - Will need more time to get it as muscle memory, though not sure how much it would be ergonomic
+- Using one shift key on thumb for both sides is good.
+- Using jk combo for esc is way too good, need to see more key code to assign to combos
+
+Things I am trying out in this layout
+- Assinging combos for ent, tab, bks
+    - ent - M,
+    - tab - UI
+    - There are other combos I would like to try but at this point this feels the best one to use and get habituated to
+- Moving number to the homerow so that I can use this in combination with the symbol keys
+    - This also means that I moved the mods to the top row, For now the purpose is for workspace, but also wanting to a single hand way to get access to all modifers when having mouse on right hand, so most probably I would leave it as is, may be move it to bottom row
+- Main thing to get hang of in this layout would be getting hangoff using shift and alt on the layers
+- Moving back to inverted T arrow keys, I feel this makes more sense to me, I get jk works in vim and browser, but in terminal in other places, I like the inverted T llets give this a try
+
+Tried but was not working
+- One shot mods of qmk, activating mods in one layer and moving to another layer makes it difficult to register them, it is finicky.
+    - it does not work as callums mods
+- Shift works well on right thumb rather than left thumb key
 
 references used for building this keyboard
 https://github.com/ghostbuster91/blogposts/blob/main/42-keys/main.md
