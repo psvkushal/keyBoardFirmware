@@ -2,8 +2,8 @@ keymap -> ![current keymap](./keymap.svg)
 
 The above keymap should be a self sufficient explanantion of the keymap, below are my thoughts on this version of the keymap
 
-main goal of this layout is to move the effort from left side to the right side, since my left side kinda feels painful sometimess
-The layout is intentionally as asymmentric and favoured towards rightsdie as possible, in the context of keys which are to be held
+main goal of this layout is to move the effort from left side to the right side
+The layout is intentionally as asymmentric and favoured towards right side as possible, in the context of keys which are to be held, since my hands are not symmentric in how they get things done so doesnt make sense the keyboard layout should be symmentric
 
 space is used by the dominant thumb key, instead of on the left thumb key 
 
@@ -21,7 +21,7 @@ Working on this keymap feels like I made a mistake jumping into 40% keyboard rab
 
 Nevertheless, it was fun thinking throught this layout, though it felt like white board mastrubation after I came up with the layout, like primeagen describes when talking about architectural designs, There are many other things I could be improving upon rather than the keymap on a freaking keyboard, like the Ben horowitz author of "The hard thing about hard things" says you should work on developing lead bullets to beat the competetion, rather than thinking about silver bullets
 
-Also me (https://tenor.com/Hgjy.gif)
+Also me ![white board mastrubation](https://tenor.com/Hgjy.gif)
 
 Next steps
 - The overarching goal would be to try to minimie the usage of the extreme pinkie colums, decreasing the keys through combos or tab hold
