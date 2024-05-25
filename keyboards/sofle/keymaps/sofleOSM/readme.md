@@ -22,7 +22,7 @@ Nevertheless, it was fun thinking throught this layout, though it felt like whit
 
 <picture>
     <source srcset="https://tenor.com/Hgjy.gif">
-    <img alt="white mastrubation">
+    <img alt="white board mastrubation">
 </picture>
 
 Observations
@@ -68,3 +68,5 @@ https://ryan.himmelwright.net/post/building-34-key-layout/
 Like I said, you can go to the moon without a computer, so, you know, the thing we are talking about is 40% keyboard, which means only 40 keys. It's very hard to type Chinese, Japanse, Russian with 40% keyboard. It's like doubling your work. Yeah, you can. But if you need to type that two hours a day you gonna see a doctor within a month. (Xah Lee) -- Jorne wiki  https://github.com/joric/jorne/wiki
 
 jokes aside it was fun reading through the posts of users who are ahead in the keyboard, and their other posts related to other aspects of optimisation was fun too
+
+I think I can go for 34 key layout but yeah it would take some time, and 36 is easier goal to have
