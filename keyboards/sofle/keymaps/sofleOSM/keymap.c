@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYMBOL] = LAYOUT(
 XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                          XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
  _______,_______, _______, _______, _______, _______,                                _______, _______, _______, _______, _______, _______,
- _______,TD(TD_WS1), TD(TD_WS2), TD(TD_WS3), TD(TD_WS4), TD(TD_WS5),                                   TD(TD_WS6), TD(TD_WS8), TD(TD_WS9), TD(TD_WS0),  TD(TD_WS7),_______,
+ _______,TD(TD_WS1), TD(TD_WS2), TD(TD_WS3), TD(TD_WS4), TD(TD_WS5),                                   TD(TD_WS6), TD(TD_WS7), TD(TD_WS8), TD(TD_WS9),  TD(TD_WS0),_______,
  _______, _______, _______, _______, _______, _______,  _______,              _______, _______, _______, _______, _______, _______, _______,
                        _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
 ),
