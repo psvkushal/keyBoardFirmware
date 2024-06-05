@@ -113,9 +113,9 @@ XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                
 ),
 [_UTIL] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                                      XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-      KC_F10, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                            TD(TD_SCR_UP), KC_F4, KC_UP , KC_BRIU,  KC_VOLU,_______,
-      KC_F11, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______,                                                         KC_TAB, KC_LEFT, KC_DOWN, KC_RIGHT, KC_MUTE,  _______,
-      KC_F9, KC_F1, KC_F3, KC_F7, KC_F12, KC_F5,  KC_F8,                           _______,TD(TD_SCR_DN), KC_F6,KC_F2 ,  KC_BRID,  KC_VOLD,_______,
+      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                            KC_F4, KC_PPLS, KC_UP , KC_BRIU,  KC_VOLU,_______,
+      _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_EQL,                                            KC_TAB, KC_LEFT, KC_DOWN, KC_RIGHT, KC_MUTE,  _______,
+      _______, KC_F1,  KC_F3, KC_F5, KC_F11, KC_F12,  _______,                           _______,KC_F6, KC_MINS,KC_F2 ,  KC_BRID,  KC_VOLD,_______,
                          _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
 )
 };
