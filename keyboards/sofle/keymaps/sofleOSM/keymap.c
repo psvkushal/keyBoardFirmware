@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_NUM] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                     XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-  _______,_______,_______,    KC_LBRC,KC_LPRN,  KC_TILD,                     KC_PPLS ,KC_RPRN, KC_RBRC ,  KC_EQL,KC_PIPE, _______,
+  _______,KC_GRV,KC_QUOT,    KC_LBRC,KC_LPRN,  KC_TILD,                     KC_PPLS ,KC_RPRN, KC_RBRC ,  KC_EQL,KC_PIPE, _______,
   _______,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                       KC_6,   KC_7,KC_8,    KC_9,   KC_0,_______,
   _______, OSM(MOD_LSFT), OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_LGUI), OSM_CLR,_______,                  _______, KC_MINS, KC_UNDS, _______, _______, KC_BSLS, _______,
                        _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
@@ -113,12 +113,13 @@ XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                
 ),
 [_UTIL] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                                      XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                            KC_F4, KC_PPLS, KC_UP , KC_BRIU,  KC_VOLU, KC_F8,
+      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                            KC_PPLS, KC_VOLU, KC_UP , KC_BRIU, KC_F4 , KC_F8,
       _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_EQL,                                            KC_TAB, KC_LEFT, KC_DOWN, KC_RIGHT, KC_MUTE,  KC_F6,
-      _______, KC_F1,  KC_F5, _______, _______, KC_F12,  _______,                           _______,KC_PSCR, KC_MINS,KC_F2 ,  KC_BRID,  KC_VOLD,_______,
+      KC_F1, KC_F5,   KC_F11, _______, _______, KC_F12,  _______,                           _______,KC_MINS,KC_VOLD, KC_PSCR,  KC_BRID,KC_F2  ,_______,
                          _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
 )
 };
+
 
 #ifdef OLED_ENABLE
 
