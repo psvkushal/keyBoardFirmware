@@ -3,6 +3,18 @@
 #include <stdint.h>
 #include QMK_KEYBOARD_H
 
+#define GUI_TAB G(KC_TAB)
+#define ALT_TAB A(KC_TAB)
+#define CTL_TAB C(KC_TAB)
+
+#define SGUI_TAB S(G(KC_TAB))
+#define SALT_TAB S(A(KC_TAB))
+#define SCTL_TAB S(C(KC_TAB))
+
+#define OSM_LGUI OSM(MOD_LGUI)
+#define OSM_LALT OSM(MOD_LALT)
+#define OSM_LCTL OSM(MOD_LCTL)
+#define OSM_LSFT OSM(MOD_LSFT)
 enum sofle_layers {
     /* _M_XYZ = Mac Os, _W_XYZ = Win/Linux */
     _BASE,
@@ -52,36 +64,36 @@ combo_t key_combos[] = {
 
 //Tap Dance Declarations
 enum {
-    TD_WS0 = 0,
-    TD_WS1 = 1,
-    TD_WS2 = 2,
-    TD_WS3 = 3,
-    TD_WS4 = 4,
-    TD_WS5 = 5,
-    TD_WS6 = 6,
-    TD_WS7 = 7,
-    TD_WS8 = 8,
-    TD_WS9 = 9,
-    TD_SCR_UP = 10,
-    TD_SCR_DN = 11
+    WS0 = 0,
+    WS1 = 1,
+    WS2 = 2,
+    WS3 = 3,
+    WS4 = 4,
+    WS5 = 5,
+    WS6 = 6,
+    WS7 = 7,
+    WS8 = 8,
+    WS9 = 9,
+    SCR_UP = 10,
+    SCR_DN = 11
 
 };
 
 //Tap Dance Definitions
 tap_dance_action_t tap_dance_actions[] = {
   //Tap once for sending alt + kc_n , tap twice to send shift + alt + kc_n
-  [TD_WS0]  = ACTION_TAP_DANCE_DOUBLE(A(KC_0), LSA(KC_0)),
-  [TD_WS1]  = ACTION_TAP_DANCE_DOUBLE(A(KC_1), LSA(KC_1)),
-  [TD_WS2]  = ACTION_TAP_DANCE_DOUBLE(A(KC_2), LSA(KC_2)),
-  [TD_WS3]  = ACTION_TAP_DANCE_DOUBLE(A(KC_3), LSA(KC_3)),
-  [TD_WS4]  = ACTION_TAP_DANCE_DOUBLE(A(KC_4), LSA(KC_4)),
-  [TD_WS5]  = ACTION_TAP_DANCE_DOUBLE(A(KC_5), LSA(KC_5)),
-  [TD_WS6]  = ACTION_TAP_DANCE_DOUBLE(A(KC_6), LSA(KC_6)),
-  [TD_WS7]  = ACTION_TAP_DANCE_DOUBLE(A(KC_7), LSA(KC_7)),
-  [TD_WS8]  = ACTION_TAP_DANCE_DOUBLE(A(KC_8), LSA(KC_8)),
-  [TD_WS9]  = ACTION_TAP_DANCE_DOUBLE(A(KC_9), LSA(KC_9)),
-  [TD_SCR_UP]  = ACTION_TAP_DANCE_DOUBLE(KC_PGUP, KC_HOME),
-  [TD_SCR_DN]  = ACTION_TAP_DANCE_DOUBLE(KC_PGDN, KC_END)
+  [WS1]  = ACTION_TAP_DANCE_DOUBLE(A(KC_0), LSA(KC_0)),
+  [WS1]  = ACTION_TAP_DANCE_DOUBLE(A(KC_1), LSA(KC_1)),
+  [WS2]  = ACTION_TAP_DANCE_DOUBLE(A(KC_2), LSA(KC_2)),
+  [WS3]  = ACTION_TAP_DANCE_DOUBLE(A(KC_3), LSA(KC_3)),
+  [WS4]  = ACTION_TAP_DANCE_DOUBLE(A(KC_4), LSA(KC_4)),
+  [WS5]  = ACTION_TAP_DANCE_DOUBLE(A(KC_5), LSA(KC_5)),
+  [WS6]  = ACTION_TAP_DANCE_DOUBLE(A(KC_6), LSA(KC_6)),
+  [WS7]  = ACTION_TAP_DANCE_DOUBLE(A(KC_7), LSA(KC_7)),
+  [WS8]  = ACTION_TAP_DANCE_DOUBLE(A(KC_8), LSA(KC_8)),
+  [WS9]  = ACTION_TAP_DANCE_DOUBLE(A(KC_9), LSA(KC_9)),
+  [SCR_UP]  = ACTION_TAP_DANCE_DOUBLE(KC_PGUP, KC_HOME),
+  [SCR_DN]  = ACTION_TAP_DANCE_DOUBLE(KC_PGDN, KC_END)
 
 // Other declarations would go here, separated by commas, if you have them
 };
@@ -91,31 +103,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                         XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
   XXXXXXX,   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                            KC_Y,   KC_U,   KC_I,   KC_O,   KC_P, KC_GRV,
-  OSM(MOD_LALT),   KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                            KC_H,   KC_J,   KC_K,   KC_L,KC_SCLN,KC_QUOT,
+  OSM_LALT,   KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                            KC_H,   KC_J,   KC_K,   KC_L,KC_SCLN,KC_QUOT,
   XXXXXXX,   KC_Z,   KC_X,   KC_C,   KC_V,   KC_B, XXXXXXX,        XXXXXXX,   KC_N,   KC_M,KC_COMM, KC_DOT,KC_SLSH, KC_BSPC,
                  XXXXXXX,XXXXXXX,KC_LGUI, TL_LOWR,  KC_LCTL,         KC_SPC,TL_UPPR,KC_LSFT,XXXXXXX,XXXXXXX
 ),
 [_NUM] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                     XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-  _______,KC_GRV,KC_QUOT,    KC_LBRC,KC_LPRN,  KC_TILD,                     KC_PPLS ,KC_RPRN, KC_RBRC ,  KC_EQL,KC_PIPE, _______,
+  _______,KC_GRV,KC_QUOT, KC_LBRC,KC_LPRN,  KC_TILD,                     KC_PPLS ,KC_RPRN, KC_RBRC ,  KC_EQL,KC_PIPE, _______,
   _______,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                       KC_6,   KC_7,KC_8,    KC_9,   KC_0,_______,
-  _______, OSM(MOD_LSFT), OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_LGUI), OSM_CLR,_______,                  _______, KC_MINS, KC_UNDS, _______, _______, KC_BSLS, _______,
+  _______, OSM_LSFT, OSM_LCTL, OSM_LALT, OSM_LGUI, OSM_CLR,_______,                  _______, KC_MINS, KC_UNDS, _______, _______, KC_BSLS, _______,
                        _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
 ),
 
     // The intention of KC_RGUI is to act as mod for moving between workspaces
 [_SYMBOL] = LAYOUT(
 XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                          XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
- _______,_______, _______, _______, _______, _______,                                _______, _______, _______, _______, _______, _______,
- _______,TD(TD_WS1), TD(TD_WS2), TD(TD_WS3), TD(TD_WS4), TD(TD_WS5),                                   TD(TD_WS6), TD(TD_WS7), TD(TD_WS8), TD(TD_WS9),  TD(TD_WS0),_______,
- _______, _______, _______, _______, _______, _______,  _______,              _______, _______, _______, _______, _______, _______, _______,
+ _______,_______, SCTL_TAB, SALT_TAB, SGUI_TAB, _______,                                _______, GUI_TAB, ALT_TAB, CTL_TAB, _______, _______,
+ _______,TD(WS1), TD(WS2), TD(WS3), TD(WS4), TD(WS5),                                   TD(WS6), TD(WS7), TD(WS8), TD(WS9),  TD(WS0),_______, _______, _______, _______, _______, _______, _______,  _______,              _______, _______, _______, _______, _______, _______, _______,
                        _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
 ),
 [_UTIL] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                                      XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                            KC_PPLS, KC_VOLU, KC_UP , KC_BRIU, KC_F4 , KC_F8,
-      _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_EQL,                                            KC_TAB, KC_LEFT, KC_DOWN, KC_RIGHT, KC_MUTE,  KC_F6,
-      KC_F1, KC_F5,   KC_F11, _______, _______, KC_F12,  _______,                           _______,KC_MINS,KC_VOLD, KC_PSCR,  KC_BRID,KC_F2  ,_______,
+      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                            KC_PPLS, KC_VOLU, KC_UP , KC_BRIU, TD(SCR_UP), KC_F4 ,
+      _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_EQL,                                            KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT, KC_MUTE,  KC_F6,
+      KC_F1, KC_F5,   KC_F11, _______, _______, KC_F12,  _______,                           _______,KC_MINS,KC_VOLD, KC_PSCR,  KC_BRID,TD(SCR_DN),KC_F2  ,
                          _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
 )
 };
