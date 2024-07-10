@@ -15,16 +15,22 @@
 #define OSM_LALT OSM(MOD_LALT)
 #define OSM_LCTL OSM(MOD_LCTL)
 #define OSM_LSFT OSM(MOD_LSFT)
+
 enum sofle_layers {
     /* _M_XYZ = Mac Os, _W_XYZ = Win/Linux */
     _BASE,
+    _GAME,
     _NUM,
     _UTIL,
-    _WS
+    _WS,
+    _GAME2,
+
 };
 
 enum custom_keycodes {
-    OSM_CLR
+    OSM_CLR,
+    KC_BASE,
+    KC_GAME,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -36,6 +42,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 clear_oneshot_mods();
             }
             return false; // Skip all further processing of this key
+        case KC_BASE:
+            if(record-> event.pressed) {
+                default_layer_set(_BASE);
+            }
+            return false;
+        case KC_GAME:
+            if(record-> event.pressed) {
+                default_layer_set(_GAME);
+            }
+            return false;
         default:
             return true;
     }
@@ -109,6 +125,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  XXXXXXX,XXXXXXX,KC_LGUI, TL_LOWR,  KC_LCTL,         KC_SPC,TL_UPPR,KC_LSFT,XXXXXXX,XXXXXXX
 ),
 
+[_GAME] = LAYOUT(
+  KC_ESC,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                       KC_6,   KC_7,KC_8,    KC_9,   KC_0,XXXXXXX,
+  KC_TAB,   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                            KC_Y,   KC_U,   KC_I,   KC_O,   KC_P, KC_GRV,
+  KC_LCTL,   KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                            KC_H,   KC_J,   KC_K,   KC_L,KC_SCLN,KC_QUOT,
+  KC_LSFT,   KC_Z,   KC_X,   KC_C,   KC_V,   KC_B, XXXXXXX,        XXXXXXX,   KC_N,   KC_M,KC_COMM, KC_DOT,KC_SLSH, KC_BSPC,
+                 KC_LALT,MO(_GAME2),  KC_SPC, TL_LOWR,KC_LGUI,         KC_SPC,TL_UPPR,KC_LSFT,XXXXXXX,XXXXXXX
+),
+
 [_NUM] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                     XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
   _______,KC_GRV,KC_QUOT, KC_LBRC,KC_LPRN,  KC_TILD,                     KC_PPLS ,KC_RPRN, KC_RBRC ,  KC_EQL,KC_PIPE, _______,
@@ -126,11 +150,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                          _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
 ),
 
+[_GAME2] = LAYOUT(
+  XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                     XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+  KC_F1,KC_F2, KC_F3,KC_F4,  KC_F5, KC_F6,                     KC_PPLS ,KC_RPRN, KC_RBRC ,  KC_EQL,KC_PIPE, _______,
+  KC_1,   KC_2,   KC_3,   KC_4,   KC_5, KC_U,                      KC_6,   KC_7,KC_8,    KC_9,   KC_0,_______,
+  KC_I, KC_J, KC_L, KC_M, KC_K, KC_Y,_______,                  _______, KC_MINS, KC_UNDS, _______, _______, KC_BSLS, _______,
+                       _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
+),
+
 [_WS] = LAYOUT(
 XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                          XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
  _______,_______, SCTL_TAB, SALT_TAB, SGUI_TAB, _______,                                _______, GUI_TAB, ALT_TAB, CTL_TAB, _______, _______,
  _______,TD(WS1), TD(WS2), TD(WS3), TD(WS4), TD(WS5),                                   TD(WS6), TD(WS7), TD(WS8), TD(WS9),  TD(WS0),_______,
- _______, _______, _______, _______, _______, _______,  _______,              _______, _______, _______, _______, _______, _______, _______,
+ _______, KC_GAME, _______, _______, KC_BASE, _______,  _______,              _______, _______, _______, _______, _______, _______, _______,
                        _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
 ),
 };
