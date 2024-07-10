@@ -20,7 +20,7 @@ enum sofle_layers {
     _BASE,
     _NUM,
     _UTIL,
-    _SYMBOL
+    _WS
 };
 
 enum custom_keycodes {
@@ -32,6 +32,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case OSM_CLR:
             if (record->event.pressed) {
                 // Do something when pressed
+                clear_mods();
                 clear_oneshot_mods();
             }
             return false; // Skip all further processing of this key
@@ -82,7 +83,7 @@ enum {
 //Tap Dance Definitions
 tap_dance_action_t tap_dance_actions[] = {
   //Tap once for sending alt + kc_n , tap twice to send shift + alt + kc_n
-  [WS1]  = ACTION_TAP_DANCE_DOUBLE(A(KC_0), LSA(KC_0)),
+  [WS0]  = ACTION_TAP_DANCE_DOUBLE(A(KC_0), LSA(KC_0)),
   [WS1]  = ACTION_TAP_DANCE_DOUBLE(A(KC_1), LSA(KC_1)),
   [WS2]  = ACTION_TAP_DANCE_DOUBLE(A(KC_2), LSA(KC_2)),
   [WS3]  = ACTION_TAP_DANCE_DOUBLE(A(KC_3), LSA(KC_3)),
@@ -107,6 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   KC_Z,   KC_X,   KC_C,   KC_V,   KC_B, XXXXXXX,        XXXXXXX,   KC_N,   KC_M,KC_COMM, KC_DOT,KC_SLSH, KC_BSPC,
                  XXXXXXX,XXXXXXX,KC_LGUI, TL_LOWR,  KC_LCTL,         KC_SPC,TL_UPPR,KC_LSFT,XXXXXXX,XXXXXXX
 ),
+
 [_NUM] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                     XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
   _______,KC_GRV,KC_QUOT, KC_LBRC,KC_LPRN,  KC_TILD,                     KC_PPLS ,KC_RPRN, KC_RBRC ,  KC_EQL,KC_PIPE, _______,
@@ -116,19 +118,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
     // The intention of KC_RGUI is to act as mod for moving between workspaces
-[_SYMBOL] = LAYOUT(
-XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                          XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
- _______,_______, SCTL_TAB, SALT_TAB, SGUI_TAB, _______,                                _______, GUI_TAB, ALT_TAB, CTL_TAB, _______, _______,
- _______,TD(WS1), TD(WS2), TD(WS3), TD(WS4), TD(WS5),                                   TD(WS6), TD(WS7), TD(WS8), TD(WS9),  TD(WS0),_______, _______, _______, _______, _______, _______, _______,  _______,              _______, _______, _______, _______, _______, _______, _______,
-                       _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
-),
 [_UTIL] = LAYOUT(
   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                                      XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
       _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                            KC_PPLS, KC_VOLU, KC_UP , KC_BRIU, TD(SCR_UP), KC_F4 ,
       _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_EQL,                                            KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT, KC_MUTE,  KC_F6,
       KC_F1, KC_F5,   KC_F11, _______, _______, KC_F12,  _______,                           _______,KC_MINS,KC_VOLD, KC_PSCR,  KC_BRID,TD(SCR_DN),KC_F2  ,
                          _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
-)
+),
+
+[_WS] = LAYOUT(
+XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                                          XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+ _______,_______, SCTL_TAB, SALT_TAB, SGUI_TAB, _______,                                _______, GUI_TAB, ALT_TAB, CTL_TAB, _______, _______,
+ _______,TD(WS1), TD(WS2), TD(WS3), TD(WS4), TD(WS5),                                   TD(WS6), TD(WS7), TD(WS8), TD(WS9),  TD(WS0),_______,
+ _______, _______, _______, _______, _______, _______,  _______,              _______, _______, _______, _______, _______, _______, _______,
+                       _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
+),
 };
 
 
@@ -149,8 +153,8 @@ void print_msg(void) {
 void print_layer_status(void) {
     oled_write_P(PSTR("\n\n"), false);
     switch (get_highest_layer(layer_state)) {
-        case 0:
-            oled_write_ln_P(PSTR("Qwrty"), false);
+        case _BASE:
+            oled_write_ln_P(PSTR("Base"), false);
             break;
         default:
             oled_write_P(PSTR("Mod\n"), false);
@@ -159,19 +163,16 @@ void print_layer_status(void) {
     oled_write_P(PSTR("\n\n"), false);
     oled_write_ln_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
-        case 0:
+        case _BASE:
             oled_write_P(PSTR("Base\n"), false);
             break;
-        case 1:
+        case _NUM:
             oled_write_P(PSTR("Nums"), false);
             break;
-        case 2:
-            oled_write_P(PSTR("Prod"), false);
-            break;
-        case 3:
+        case _WS:
             oled_write_ln_P(PSTR("WS"), false);
             break;
-        case 4:
+        case _UTIL:
             oled_write_ln_P(PSTR("Utils"), false);
             break;
         default:
