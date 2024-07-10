@@ -44,12 +44,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false; // Skip all further processing of this key
         case KC_BASE:
             if(record-> event.pressed) {
-                default_layer_set(_BASE);
+                default_layer_set(1<<_BASE);
             }
             return false;
         case KC_GAME:
             if(record-> event.pressed) {
-                default_layer_set(_GAME);
+                default_layer_set(1<<_GAME);
             }
             return false;
         default:
@@ -187,6 +187,9 @@ void print_layer_status(void) {
     switch (get_highest_layer(layer_state)) {
         case _BASE:
             oled_write_ln_P(PSTR("Base"), false);
+            break;
+        case _GAME:
+            oled_write_ln_P(PSTR("Game"), false);
             break;
         default:
             oled_write_P(PSTR("Mod\n"), false);
