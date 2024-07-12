@@ -181,18 +181,18 @@ void print_layer_status(void) {
         case _BASE:
             oled_write_ln_P(PSTR("Base"), false);
             break;
-        case _GAME:
-            oled_write_ln_P(PSTR("Game"), false);
-            break;
         default:
             oled_write_P(PSTR("Mod\n"), false);
             break;
     }
     oled_write_P(PSTR("\n\n"), false);
     oled_write_ln_P(PSTR("LAYER"), false);
-    switch (get_highest_layer(layer_state)) {
+    switch (get_highest_layer(layer_state | default_layer_state)) {
         case _BASE:
             oled_write_P(PSTR("Base\n"), false);
+            break;
+        case _GAME:
+            oled_write_P(PSTR("Game\n"), false);
             break;
         case _NUM:
             oled_write_P(PSTR("Nums"), false);
@@ -202,6 +202,9 @@ void print_layer_status(void) {
             break;
         case _UTIL:
             oled_write_ln_P(PSTR("Utils"), false);
+            break;
+        case _GAME2:
+            oled_write_ln_P(PSTR("Game2"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
