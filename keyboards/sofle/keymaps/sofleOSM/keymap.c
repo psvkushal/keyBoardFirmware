@@ -16,21 +16,24 @@
 #define OSM_LCTL OSM(MOD_LCTL)
 #define OSM_LSFT OSM(MOD_LSFT)
 
+//not sure how this works since this code should be above the enum def (；・∀ ・)
+#define KC_BASE DF(_BASE)
+#define KC_GAME DF(_GAME)
+
 enum sofle_layers {
     /* _M_XYZ = Mac Os, _W_XYZ = Win/Linux */
-    _BASE,
+    _BASE = 0,
     _GAME,
     _NUM,
     _UTIL,
     _WS,
-    _GAME2,
+    _GAME2
 
 };
 
+
 enum custom_keycodes {
     OSM_CLR,
-    KC_BASE,
-    KC_GAME,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -42,16 +45,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 clear_oneshot_mods();
             }
             return false; // Skip all further processing of this key
-        case KC_BASE:
-            if(record-> event.pressed) {
-                default_layer_set(1<<_BASE);
-            }
-            return false;
-        case KC_GAME:
-            if(record-> event.pressed) {
-                default_layer_set(1<<_GAME);
-            }
-            return false;
         default:
             return true;
     }
